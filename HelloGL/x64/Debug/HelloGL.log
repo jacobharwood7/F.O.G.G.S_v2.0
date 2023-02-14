@@ -1,0 +1,6 @@
+﻿  HelloGL.cpp
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(4,1): error C2511: 'HelloGL::HelloGL(int,char *[])': overloaded member function not found in 'HelloGL'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.h(8): message : see declaration of 'HelloGL'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(7,18): error C2065: 'Display': undeclared identifier
+  main.cpp
+  Generating Code...
