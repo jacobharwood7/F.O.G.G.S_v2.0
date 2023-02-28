@@ -18,15 +18,32 @@ struct Camera {
 	Vector3 eye;
 	//where the camera looks at regardless of position
 	Vector3 center;
-	//
+	//orientation of the camera
 	Vector3 up;
+};
+
+struct Colour
+{
+	GLfloat r, g, b;
+};
+struct Vertex
+{
+	GLfloat x, y, z;
 };
 
 class HelloGL
 {
 private:
 	float rotation;
+
 	Camera* camera;
+
+	static Vertex vertices[];
+	static Colour colours[];
+
+	static Vertex indexedVertices[];
+	static Colour indexedColours[];
+	static GLushort indices[];
 public:
 	//constructor definition
 	HelloGL(int argc, char* argv[]);
@@ -36,5 +53,9 @@ public:
 	void DrawPolygon();
 	void Update();
 	void Keyboard(unsigned char key, int x, int y);
+	void DrawCube();
+	void DrawIndexedCube();
+	void DrawCubeArrayAlt();
+	void DrawIndexedCubeAlt();
 };
 
