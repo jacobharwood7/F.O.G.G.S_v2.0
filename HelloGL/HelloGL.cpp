@@ -78,7 +78,7 @@ void HelloGL::Keyboard(unsigned char key, int x, int y)
 	{
 		//rotation += 0.5f;
 		camera->eye.x += 0.1f;
-		camera->center.x += 0.1f;
+		//camera->center.x += 0.1f;
 
 	}
 
@@ -86,21 +86,21 @@ void HelloGL::Keyboard(unsigned char key, int x, int y)
 	{
 		//rotation -= 0.5f;
 		camera->eye.x -= 0.1f;
-		camera->center.x -= 0.1f;
+		//camera->center.x -= 0.1f;
 
 
 	}
 	if (key == 'w')
 	{
 		camera->eye.y += 0.1f;
-		camera->center.y += 0.1f;
+		//camera->center.y += 0.1f;
 
 
 	}
 	if (key == 's')
 	{
 		camera->eye.y -= 0.1f;
-		camera->center.y -= 0.1f;
+		//camera->center.y -= 0.1f;
 
 	}
 	if (rotation >= 360.0f)
