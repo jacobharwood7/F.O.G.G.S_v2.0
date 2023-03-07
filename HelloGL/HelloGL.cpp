@@ -7,7 +7,7 @@ HelloGL::HelloGL(int argc, char* argv[])
 	camera = new Camera();
 	cube = new Cube();
 
-	//camera->eye.x = 0.0f;camera->eye.y = 0.0f;camera->eye.z = 1.0f;
+	//camera->eye.x = 0.0f;camera->eye.y = 0.0f;camera->eye.z = 0.0f;
 	camera->eye.x = 5.0f; camera->eye.y = 5.0f; camera->eye.z = -5.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
@@ -44,6 +44,7 @@ void HelloGL::Display()
 void HelloGL::Update()
 {
 	cube->Update();
+
 	glLoadIdentity();
 	gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z, 
 		camera->center.x, camera->center.y, camera->center.z,

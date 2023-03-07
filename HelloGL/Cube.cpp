@@ -20,6 +20,8 @@ GLushort Cube::indices[] = { 0, 1, 2,  2, 3, 0,      // front
 
 Cube::Cube()
 {
+
+	rotation = 0;
 }
 
 Cube::~Cube()
@@ -29,6 +31,9 @@ Cube::~Cube()
 void Cube::Draw()
 {
 	glPushMatrix();
+
+	glRotatef(rotation, 1.0f, 0.0f, 0.0f);
+
 
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_COLOR_ARRAY);
@@ -43,7 +48,7 @@ void Cube::Draw()
 	glDisableClientState(GL_VERTEX_ARRAY);
 	
 	
-	glRotatef(5.0f, 1.0f, 0.0f, 0.0f);
+
 
 	glPopMatrix();
 
@@ -57,10 +62,4 @@ void Cube::Update()
 	{
 		rotation = 0.0f;
 	}
-	/*
-	glLoadIdentity();
-	gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z,
-		camera->center.x, camera->center.y, camera->center.z,
-		camera->up.x, camera->up.y, camera->up.z);
-	glutPostRedisplay();*/
 }
