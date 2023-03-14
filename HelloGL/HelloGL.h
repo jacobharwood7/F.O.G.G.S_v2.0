@@ -18,7 +18,7 @@ private:
 
 	Camera* camera;
 
-	Cube* cube;
+	Cube* cube[200];
 public:
 	//constructor definition
 	HelloGL(int argc, char* argv[]);
