@@ -130,6 +130,11 @@ void HelloGL::Update()
 		camera->center.x, camera->center.y, camera->center.z,
 		camera->up.x, camera->up.y, camera->up.z);
 	glutPostRedisplay();
+	rotation += 0.1f;
+	if (rotation >= 360.0f)
+	{
+		rotation = 0.0f;
+	}
 }
 
 void HelloGL::Keyboard(unsigned char key, int x, int y)
@@ -283,6 +288,7 @@ void HelloGL::DrawIndexedCube()
 
 void HelloGL::DrawCubeArrayAlt()
 {
+	glRotatef(rotation, 1.0f, 0.0f, 0.0f);
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_COLOR_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, vertices);
