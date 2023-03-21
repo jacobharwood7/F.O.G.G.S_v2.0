@@ -1,21 +1,16 @@
 #include "Cube.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+Vertex* Cube::indexedVertices = nullptr; // v6,v7
 
-Vertex Cube::indexedVertices[] = { 1, 1, 1,  -1, 1, 1,  // v0,v1,
-				-1,-1, 1,   1,-1, 1,   // v2,v3
-				1,-1,-1,   1, 1,-1,    // v4,v5
-				-1, 1,-1,   -1,-1,-1 }; // v6,v7
+Colour* Cube::indexedColours = nullptr; //v6,v7
 
-Colour Cube::indexedColours[] = { 1, 1, 1,   1, 1, 0,   // v0,v1,
-				1, 0, 0,   1, 0, 1,   // v2,v3
-				0, 0, 1,   0, 1, 1,   // v4,v5
-				0, 1, 0,   0, 0, 0 }; //v6,v7
+GLushort* Cube::indices = nullptr;    // back
 
-GLushort Cube::indices[] = { 0, 1, 2,  2, 3, 0,      // front
-				0, 3, 4,  4, 5, 0,      // right
-				0, 5, 6,  6, 1, 0,      // top
-				1, 6, 7,  7, 2, 1,      // left
-				7, 4, 3,  3, 2, 7,      // bottom
-				4, 7, 6,  6, 5, 4 };    // back
+int Cube::numVertices = 0;
+int Cube::numColours = 0;
+int Cube::numIndices = 0;
 
 
 Cube::Cube(float x, float y, float z)
@@ -34,28 +29,27 @@ Cube::~Cube()
 
 void Cube::Draw()
 {
-	glPushMatrix();
+	if (indexedColours!=nullptr&&indexedVertices!=nullptr&&indices!=nullptr)
+	{
+		glPushMatrix();
 
-	glTranslatef(_position.x, _position.y, _position.z);
-	glRotatef(rotation*rotateFactor, 1.0f, 1.0f, 1.0f);
+		glTranslatef(_position.x, _position.y, _position.z);
+		glRotatef(rotation * rotateFactor, 1.0f, 1.0f, 1.0f);
 
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_COLOR_ARRAY);
-	glVertexPointer(3, GL_FLOAT, 0, indexedVertices);
-	glColorPointer(3, GL_FLOAT, 0, indexedColours);
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glEnableClientState(GL_COLOR_ARRAY);
+		glVertexPointer(3, GL_FLOAT, 0, indexedVertices);
+		glColorPointer(3, GL_FLOAT, 0, indexedColours);
 
-	glPushMatrix();
-	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, indices);
-	glPopMatrix();
+		glPushMatrix();
+		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, indices);
+		glPopMatrix();
 
-	glDisableClientState(GL_COLOR_ARRAY);
-	glDisableClientState(GL_VERTEX_ARRAY);
-	
-	
+		glDisableClientState(GL_COLOR_ARRAY);
+		glDisableClientState(GL_VERTEX_ARRAY);
 
-
-	glPopMatrix();
-
+		glPopMatrix();
+	}
 	
 }
 
@@ -66,4 +60,51 @@ void Cube::Update()
 	{
 		rotation = 0.0f;
 	}
+}
+
+bool Cube::Load(char* path)
+{
+	std::ifstream inFile(path);
+	std::string line;
+	if (!inFile.good())
+	{
+		std::cerr << "I cannot open the text file! HELP! " << path << std::endl;
+		return false;
+	}
+
+	inFile >> numVertices;
+	indexedVertices = new Vertex[numVertices];
+	for (int i = 0; i < numVertices; i++)
+	{  
+		std::getline(std::cin, line);
+		for (int j = 0; j < size(line); i++)
+		{
+
+		}
+	}
+
+	inFile >> numColours;
+	indexedColours = new Colour[numColours];
+	for (int i = 0; i < numColours; i++)
+	{
+		blank = inFile.get();
+		indexedColours[i].r = inFile.get();
+		blank = inFile.get();
+		indexedColours[i].g = inFile.get();
+		blank = inFile.get();
+		indexedColours[i].b = inFile.get();
+	}
+	
+	inFile >> numIndices;
+	indices = new GLushort[numIndices];
+	for (int i = 0; i < numIndices; i++)
+	{
+		blank = inFile.get();
+		indices[i] = inFile.get();
+	}
+	
+	inFile.close();
+
+
+	return true;
 }

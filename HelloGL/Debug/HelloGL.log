@@ -1,2 +1,21 @@
 ﻿  Cube.cpp
-  HelloGL.vcxproj -> C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Debug\HelloGL.exe
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(79,8): error C2672: 'std::getline': no matching overloaded function found
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(79,26): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_istream<_Elem,_Traits> &' from 'char *'
+C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.32.31326\include\string(81): message : see declaration of 'std::getline'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(79,26): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.32.31326\include\string(75): message : see declaration of 'std::getline'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(79,26): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_istream<_Elem,_Traits> &&' from 'char *'
+C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.32.31326\include\string(69): message : see declaration of 'std::getline'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(79,26): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.32.31326\include\string(26): message : see declaration of 'std::getline'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(86,3): error C2065: 'blank': undeclared identifier
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(87,35): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(88,3): error C2065: 'blank': undeclared identifier
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(89,35): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(90,3): error C2065: 'blank': undeclared identifier
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(91,35): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(98,3): error C2065: 'blank': undeclared identifier
+  HelloGL.cpp
+  main.cpp
+  GLUTCallbacks.cpp
+  Generating Code...

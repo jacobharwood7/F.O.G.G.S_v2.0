@@ -12,7 +12,7 @@ HelloGL::HelloGL(int argc, char* argv[])
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
 
-
+	Cube::Load((char*)"cube.txt");
 
 	GLUTCallbacks::Init(this);
 	glutInit(&argc, argv);
