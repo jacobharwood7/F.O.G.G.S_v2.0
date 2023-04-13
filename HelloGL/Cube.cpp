@@ -76,31 +76,26 @@ bool Cube::Load(char* path)
 	indexedVertices = new Vertex[numVertices];
 	for (int i = 0; i < numVertices; i++)
 	{  
-		std::getline(std::cin, line);
-		for (int j = 0; j < size(line); i++)
-		{
-
-		}
+		inFile >> indexedVertices[i].x;
+		inFile >> indexedVertices[i].y;
+		inFile >> indexedVertices[i].z;
+		
 	}
 
 	inFile >> numColours;
 	indexedColours = new Colour[numColours];
 	for (int i = 0; i < numColours; i++)
 	{
-		blank = inFile.get();
-		indexedColours[i].r = inFile.get();
-		blank = inFile.get();
-		indexedColours[i].g = inFile.get();
-		blank = inFile.get();
-		indexedColours[i].b = inFile.get();
+		inFile >> indexedColours[i].r;
+		inFile >> indexedColours[i].g;
+		inFile >> indexedColours[i].b;
 	}
 	
 	inFile >> numIndices;
 	indices = new GLushort[numIndices];
 	for (int i = 0; i < numIndices; i++)
 	{
-		blank = inFile.get();
-		indices[i] = inFile.get();
+		inFile >> indices[i];
 	}
 	
 	inFile.close();
