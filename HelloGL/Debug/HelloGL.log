@@ -1,2 +1,11 @@
 ﻿  Cube.cpp
-  HelloGL.vcxproj -> C:\Users\harwo\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Debug\HelloGL.exe
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(13,24): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
+  GLUTCallbacks.cpp
+  HelloGL.cpp
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(20,102): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(24,106): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Pyramid.cpp
+  SceneObject.cpp
+  main.cpp
+  Generating Code...
+  HelloGL.vcxproj -> C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Debug\HelloGL.exe

@@ -1,12 +1,9 @@
 #pragma once //stops circular dependency
-#include <Windows.h>
-#include <gl/GL.h>
-#include <gl/GLU.h>
-
-#include "GL/freeglut.h"
 #include "GLUTCallbacks.h"
 #include "Structures.h"
 #include "Cube.h"
+#include "Pyramid.h"
+#include "MeshLoader.h"
 
 
 #define REFRESHRATE 16
@@ -18,7 +15,8 @@ private:
 
 	Camera* camera;
 
-	Cube* cube[200];
+	SceneObject* objects[1000];
+
 public:
 	//constructor definition
 	HelloGL(int argc, char* argv[]);
@@ -27,5 +25,9 @@ public:
 	void Display();
 	void Update();
 	void Keyboard(unsigned char key, int x, int y);
+
+	void InitObjects();
+	void InitGL(int argc, char* argv[]);
+
 };
 

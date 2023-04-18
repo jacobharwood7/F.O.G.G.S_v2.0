@@ -1,26 +1,22 @@
 #include "Cube.h"
 #include <iostream>
 #include <fstream>
-#include <string>
-Vertex* Cube::indexedVertices = nullptr; // v6,v7
-
-Colour* Cube::indexedColours = nullptr; //v6,v7
-
-GLushort* Cube::indices = nullptr;    // back
-
-int Cube::numVertices = 0;
-int Cube::numColours = 0;
-int Cube::numIndices = 0;
 
 
-Cube::Cube(float x, float y, float z)
+Cube::Cube(Mesh* mesh, float x, float y, float z) : SceneObject(mesh)
 {
 	_position.x = x;
 	_position.y = y;
 	_position.z = z;
 
 	rotation = 0;
-	rotateFactor = ((rand() % 100)/10.0f);
+	rotationDir = (rand() % 2);
+	if (rotationDir == 0)
+	{
+		rotationDir = -1;
+	}
+	rotateFactor = rotationDir*((rand() % 100)/10.0f);
+	
 }
 
 Cube::~Cube()
@@ -29,7 +25,8 @@ Cube::~Cube()
 
 void Cube::Draw()
 {
-	if (indexedColours!=nullptr&&indexedVertices!=nullptr&&indices!=nullptr)
+	
+	if (objMesh->Colours!=nullptr&& objMesh->Vertices!=nullptr&& objMesh->Indices!=nullptr)
 	{
 		glPushMatrix();
 
@@ -38,11 +35,11 @@ void Cube::Draw()
 
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_COLOR_ARRAY);
-		glVertexPointer(3, GL_FLOAT, 0, indexedVertices);
-		glColorPointer(3, GL_FLOAT, 0, indexedColours);
+		glVertexPointer(3, GL_FLOAT, 0, objMesh->Vertices);
+		glColorPointer(3, GL_FLOAT, 0, objMesh->Colours);
 
 		glPushMatrix();
-		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, indices);
+		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, objMesh->Indices);
 		glPopMatrix();
 
 		glDisableClientState(GL_COLOR_ARRAY);
@@ -60,46 +57,10 @@ void Cube::Update()
 	{
 		rotation = 0.0f;
 	}
+	_position.z += 1;
+	if (_position.z >= 0)
+	{
+		_position.z = -500;
+	}
 }
 
-bool Cube::Load(char* path)
-{
-	std::ifstream inFile(path);
-	std::string line;
-	if (!inFile.good())
-	{
-		std::cerr << "I cannot open the text file! HELP! " << path << std::endl;
-		return false;
-	}
-
-	inFile >> numVertices;
-	indexedVertices = new Vertex[numVertices];
-	for (int i = 0; i < numVertices; i++)
-	{  
-		inFile >> indexedVertices[i].x;
-		inFile >> indexedVertices[i].y;
-		inFile >> indexedVertices[i].z;
-		
-	}
-
-	inFile >> numColours;
-	indexedColours = new Colour[numColours];
-	for (int i = 0; i < numColours; i++)
-	{
-		inFile >> indexedColours[i].r;
-		inFile >> indexedColours[i].g;
-		inFile >> indexedColours[i].b;
-	}
-	
-	inFile >> numIndices;
-	indices = new GLushort[numIndices];
-	for (int i = 0; i < numIndices; i++)
-	{
-		inFile >> indices[i];
-	}
-	
-	inFile.close();
-
-
-	return true;
-}
