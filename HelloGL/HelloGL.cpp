@@ -10,7 +10,7 @@ HelloGL::HelloGL(int argc, char* argv[])
 
 void HelloGL::InitObjects()
 {
-	Mesh* cubeMesh = MeshLoader::Load((char*)"cubes.txt");
+	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
 
 	Mesh* pyraMesh = MeshLoader::Load((char*)"pyramid.txt");
 
@@ -66,7 +66,7 @@ void HelloGL::Display()
 
 void HelloGL::Update()
 {
-	for (int i = 0; i < 200; i++)
+	for (int i = 0; i < 1000; i++)
 	{
 		objects[i]->Update();
 	}
