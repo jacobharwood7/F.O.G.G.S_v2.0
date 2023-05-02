@@ -17,6 +17,9 @@ private:
 
 	SceneObject* objects[1000];
 
+	Vector4* lightPosition;
+	Lighting* lightData;
+
 public:
 	//constructor definition
 	HelloGL(int argc, char* argv[]);
@@ -27,6 +30,7 @@ public:
 	void Keyboard(unsigned char key, int x, int y);
 
 	void InitObjects();
+	void InitLight();
 	void InitGL(int argc, char* argv[]);
 
 };

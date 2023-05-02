@@ -17,6 +17,9 @@ Cube::Cube(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneObj
 	}
 	rotateFactor = rotationDir*((rand() % 100)/10.0f);
 	
+
+
+
 }
 
 Cube::~Cube()
@@ -26,16 +29,14 @@ Cube::~Cube()
 void Cube::Draw()
 {
 	
-	if (objMesh->Colours!=nullptr&& objMesh->Vertices!=nullptr&& objMesh->Indices!=nullptr)
+	if (objMesh->Normals!=nullptr&& objMesh->Vertices!=nullptr&& objMesh->Indices!=nullptr)
 	{
-		//glPushMatrix();
-
 		glBindTexture(GL_TEXTURE_2D, objTexture->GetID());
-		glEnableClientState(GL_COLOR_ARRAY);
+		glEnableClientState(GL_NORMAL_ARRAY);
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		
-		glColorPointer(3, GL_FLOAT, 0, objMesh->Colours);
+		glNormalPointer(GL_FLOAT, 0, objMesh->Normals);
 		glVertexPointer(3, GL_FLOAT, 0, objMesh->Vertices);
 		glTexCoordPointer(2, GL_FLOAT, 0, objMesh->TexCoords);
 		
@@ -48,8 +49,7 @@ void Cube::Draw()
 
 		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 		glDisableClientState(GL_VERTEX_ARRAY);
-		glDisableClientState(GL_COLOR_ARRAY);
-		//glPopMatrix();
+		glDisableClientState(GL_NORMAL_ARRAY);
 	}
 	
 }
@@ -61,10 +61,10 @@ void Cube::Update()
 	{
 		rotation = 0.0f;
 	}
-	_position.z += 1;
+	/*_position.z += 1;
 	if (_position.z >= 0)
 	{
 		_position.z = -500;
-	}
+	}*/
 }
 

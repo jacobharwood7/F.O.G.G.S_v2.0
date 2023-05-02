@@ -4,6 +4,7 @@ HelloGL::HelloGL(int argc, char* argv[])
 {
 	InitGL(argc,argv);
 	InitObjects();
+	InitLight(); 
 	glutMainLoop();
 }
 
@@ -14,7 +15,7 @@ void HelloGL::InitObjects()
 
 	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
 
-	Mesh* pyraMesh = MeshLoader::Load((char*)"pyramid.txt");
+	//Mesh* pyraMesh = MeshLoader::Load((char*)"pyramid.txt");
 
 	camera = new Camera();
 	for (int i = 0; i < 500; i++)
@@ -30,6 +31,32 @@ void HelloGL::InitObjects()
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
 
 	
+}
+
+void HelloGL::InitLight()
+{
+	lightPosition = new Vector4();
+	lightPosition->x = 0.0;
+	lightPosition->y = 0.0;
+	lightPosition->z = 1.0;
+	lightPosition->w = 0.0;
+
+	lightData = new Lighting();
+	lightData->ambient.x = 0.2;
+	lightData->ambient.y = 0.2;
+	lightData->ambient.z = 0.2;
+	lightData->ambient.w = 1.0;
+	lightData->diffuse.x = 0.8;
+	lightData->diffuse.y = 0.8;
+	lightData->diffuse.z = 0.8;
+	lightData->diffuse.w = 1.0;
+	lightData->specular.x = 0.2;
+	lightData->specular.y = 0.2;
+	lightData->specular.z = 0.2;
+	lightData->specular.w = 1.0;
+
+
+
 }
 
 void HelloGL::InitGL(int argc, char* argv[])
@@ -51,6 +78,8 @@ void HelloGL::InitGL(int argc, char* argv[])
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
 	glCullFace(GL_BACK);
 }
 
@@ -73,6 +102,29 @@ void HelloGL::Update()
 	{
 		objects[i]->Update();
 	}
+	/*Light*/
+	glLightfv(GL_LIGHT0, GL_AMBIENT, &(lightData->ambient.x));
+	glLightfv(GL_LIGHT0, GL_AMBIENT, &(lightData->ambient.y));
+	glLightfv(GL_LIGHT0, GL_AMBIENT, &(lightData->ambient.z));
+	glLightfv(GL_LIGHT0, GL_AMBIENT, &(lightData->ambient.w));
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, &(lightData->diffuse.x));
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, &(lightData->diffuse.y));
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, &(lightData->diffuse.z));
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, &(lightData->diffuse.w));
+	glLightfv(GL_LIGHT0, GL_SPECULAR, &(lightData->specular.x));
+	glLightfv(GL_LIGHT0, GL_SPECULAR, &(lightData->specular.y));
+	glLightfv(GL_LIGHT0, GL_SPECULAR, &(lightData->specular.z));
+	glLightfv(GL_LIGHT0, GL_SPECULAR, &(lightData->specular.w));
+	
+	glLightfv(GL_LIGHT0, GL_POSITION, &(lightPosition->x));
+	glLightfv(GL_LIGHT0, GL_POSITION, &(lightPosition->y));
+	glLightfv(GL_LIGHT0, GL_POSITION, &(lightPosition->z));
+	glLightfv(GL_LIGHT0, GL_POSITION, &(lightPosition->w));
+
+
+
+
+
 
 	glLoadIdentity();
 	/*gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z,
