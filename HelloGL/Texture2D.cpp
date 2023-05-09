@@ -40,4 +40,5 @@ bool Texture2D::Load(char* path, int width, int height)
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     delete[] tempTextureData;
     return true;
+    
 }

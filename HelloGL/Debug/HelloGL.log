@@ -6,6 +6,23 @@ C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(81,66): warni
 C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(83,22): warning C4305: '=': truncation from 'double' to 'float'
 C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(83,45): warning C4305: '=': truncation from 'double' to 'float'
 C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(83,68): warning C4305: '=': truncation from 'double' to 'float'
+  GLUTCallbacks.cpp
+  HelloGL.cpp
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(24,112): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(46,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(47,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(48,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(50,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(51,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(52,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(54,29): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(55,29): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(56,29): warning C4305: '=': truncation from 'double' to 'float'
+  MeshLoader.cpp
+  Pyramid.cpp
+  SceneObject.cpp
+  Texture2D.cpp
   main.cpp
   Generating Code...
+  LINK : C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Debug\HelloGL.exe not found or not built by the last incremental link; performing full link
   HelloGL.vcxproj -> C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Debug\HelloGL.exe
