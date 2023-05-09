@@ -18,5 +18,6 @@ public:
 
 	void Draw();
 	void Update();
+	void DefineMats();
 };
 

@@ -20,6 +20,12 @@ private:
 	Vector4* lightPosition;
 	Lighting* lightData;
 
+
+	Texture2D* cubeText;
+	
+	Mesh* cubeMesh;
+	
+
 public:
 	//constructor definition
 	HelloGL(int argc, char* argv[]);

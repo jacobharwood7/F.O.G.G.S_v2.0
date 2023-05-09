@@ -13,8 +13,6 @@ namespace MeshLoader
 	void LoadTexCoords(ifstream& inFile, Mesh& mesh);
 
 
-
-
 	void LoadVertices(ifstream& inFile, Mesh& mesh)
 	{
 		inFile >> mesh.vertexCount;
