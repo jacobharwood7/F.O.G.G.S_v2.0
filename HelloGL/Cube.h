@@ -10,7 +10,8 @@ private:
 	GLfloat rotationDir;
 	GLfloat rotation;
 	float rotateFactor;
-	Material* material;
+
+	Material* mat;
 
 public:
 	Cube(Mesh* mesh, Texture2D* texture, float x, float y, float z);
@@ -18,5 +19,6 @@ public:
 
 	void Draw();
 	void Update();
+	void DefMat();
 };
 

@@ -17,13 +17,15 @@ Cube::Cube(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneObj
 	}
 	rotateFactor = rotationDir*((rand() % 100)/10.0f);
 	
-
+	mat = new Material();
 
 
 }
 
 Cube::~Cube()
 {
+	delete mat;
+	mat = nullptr;
 }
 
 void Cube::Draw()
@@ -40,6 +42,11 @@ void Cube::Draw()
 		glVertexPointer(3, GL_FLOAT, 0, objMesh->Vertices);
 		glTexCoordPointer(2, GL_FLOAT, 0, objMesh->TexCoords);
 		
+		DefMat();
+		glMaterialfv(GL_FRONT, GL_AMBIENT, &(mat->ambient.x));
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, &(mat->diffuse.x));
+		glMaterialfv(GL_FRONT, GL_SPECULAR, &(mat->specular.x));
+		glMaterialf(GL_FRONT, GL_SHININESS, mat->shine);
 		
 		glPushMatrix();
 			glTranslatef(_position.x, _position.y, _position.z);
@@ -66,5 +73,17 @@ void Cube::Update()
 	{
 		_position.z = -500;
 	}*/
+}
+
+void Cube::DefMat()
+{
+	
+	mat->ambient.x = 0.8;mat->ambient.y = 0.05;mat->ambient.z = 0.05;
+	mat->ambient.w = 1.0;
+	mat->diffuse.x = 0.8; mat->diffuse.y = 0.05; mat->diffuse.z = 0.05;
+	mat->diffuse.w = 1.0;
+	mat->specular.x = 1.0; mat->specular.y = 1.0; mat->specular.z = 1.0;
+	mat->specular.w = 1.0;
+	mat->shine = 100.0f;
 }
 
