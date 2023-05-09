@@ -5,6 +5,7 @@ HelloGL::HelloGL(int argc, char* argv[])
 	InitGL(argc,argv);
 	InitObjects();
 	InitLight(); 
+	
 	glutMainLoop();
 }
 
@@ -26,7 +27,7 @@ void HelloGL::InitObjects()
 	{
 		objects[i] = new Pyramid(pyraMesh, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 500));
 	}*/
-	camera->eye.x = 5.0f; camera->eye.y = 5.0f; camera->eye.z = -5.0f;
+	camera->eye.x = 5.0f; camera->eye.y = 5.0f; camera->eye.z = -50.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
 
@@ -38,7 +39,7 @@ void HelloGL::InitLight()
 	lightPosition = new Vector4();
 	lightPosition->x = 0.0;
 	lightPosition->y = 0.0;
-	lightPosition->z = 1.0;
+	lightPosition->z = 10.0;
 	lightPosition->w = 0.0;
 
 	lightData = new Lighting();
@@ -75,11 +76,11 @@ void HelloGL::InitGL(int argc, char* argv[])
 	glViewport(0, 0, 800, 800);
 	gluPerspective(45, 1, 0.1, 500);
 	glMatrixMode(GL_MODELVIEW);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
 	glCullFace(GL_BACK);
 }
 
@@ -98,38 +99,24 @@ void HelloGL::Display()
 
 void HelloGL::Update()
 {
+	glLoadIdentity();
+	//
+	//gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z,
+	//	camera->center.x, camera->center.y, camera->center.z,
+	//	camera->up.x, camera->up.y, camera->up.z);
+	
 	for (int i = 0; i < 500; i++)
 	{
 		objects[i]->Update();
 	}
+	
 	/*Light*/
 	glLightfv(GL_LIGHT0, GL_AMBIENT, &(lightData->ambient.x));
-	glLightfv(GL_LIGHT0, GL_AMBIENT, &(lightData->ambient.y));
-	glLightfv(GL_LIGHT0, GL_AMBIENT, &(lightData->ambient.z));
-	glLightfv(GL_LIGHT0, GL_AMBIENT, &(lightData->ambient.w));
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, &(lightData->diffuse.x));
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, &(lightData->diffuse.y));
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, &(lightData->diffuse.z));
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, &(lightData->diffuse.w));
 	glLightfv(GL_LIGHT0, GL_SPECULAR, &(lightData->specular.x));
-	glLightfv(GL_LIGHT0, GL_SPECULAR, &(lightData->specular.y));
-	glLightfv(GL_LIGHT0, GL_SPECULAR, &(lightData->specular.z));
-	glLightfv(GL_LIGHT0, GL_SPECULAR, &(lightData->specular.w));
-	
 	glLightfv(GL_LIGHT0, GL_POSITION, &(lightPosition->x));
-	glLightfv(GL_LIGHT0, GL_POSITION, &(lightPosition->y));
-	glLightfv(GL_LIGHT0, GL_POSITION, &(lightPosition->z));
-	glLightfv(GL_LIGHT0, GL_POSITION, &(lightPosition->w));
 
 
-
-
-
-
-	glLoadIdentity();
-	/*gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z,
-		camera->center.x, camera->center.y, camera->center.z,
-		camera->up.x, camera->up.y, camera->up.z);*/
 	glutPostRedisplay();
 }
 
