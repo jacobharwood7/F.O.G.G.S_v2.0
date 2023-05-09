@@ -33,5 +33,7 @@ public:
 	void InitLight();
 	void InitGL(int argc, char* argv[]);
 
+	void DrawString(const char* text, Vector3* position, Colour* colour);
+
 };
 

@@ -27,7 +27,7 @@ void HelloGL::InitObjects()
 	{
 		objects[i] = new Pyramid(pyraMesh, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 500));
 	}*/
-	camera->eye.x = 5.0f; camera->eye.y = 5.0f; camera->eye.z = -50.0f;
+	camera->eye.x = 5.0f; camera->eye.y = 5.0f; camera->eye.z = 5.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
 
@@ -84,6 +84,15 @@ void HelloGL::InitGL(int argc, char* argv[])
 	glCullFace(GL_BACK);
 }
 
+void HelloGL::DrawString(const char* text, Vector3* position, Colour* colour)
+{
+	glPushMatrix();
+		glTranslatef(position->x, position->y, position->z);
+		glRasterPos2f(0.0f, 0.0f);
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, (unsigned char*)text);
+	glPopMatrix();
+}
+
 
 void HelloGL::Display()
 {
@@ -93,17 +102,17 @@ void HelloGL::Display()
 	{
 		objects[i]->Draw();
 	}
+
+	Vector3 v = { camera->center.x,camera->center.y+0.25f,camera->center.z - 1 };
+	Colour c = { 1.0f,0.0f,0.0f };
+	DrawString("Foggs", &v, &c);
+
 	glFlush();
 	glutSwapBuffers();
 }
 
 void HelloGL::Update()
 {
-	glLoadIdentity();
-	//
-	//gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z,
-	//	camera->center.x, camera->center.y, camera->center.z,
-	//	camera->up.x, camera->up.y, camera->up.z);
 	
 	for (int i = 0; i < 500; i++)
 	{
@@ -116,7 +125,10 @@ void HelloGL::Update()
 	glLightfv(GL_LIGHT0, GL_SPECULAR, &(lightData->specular.x));
 	glLightfv(GL_LIGHT0, GL_POSITION, &(lightPosition->x));
 
-
+	glLoadIdentity();
+		/*gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z,
+			camera->center.x, camera->center.y, camera->center.z,
+			camera->up.x, camera->up.y, camera->up.z);*/
 	glutPostRedisplay();
 }
 

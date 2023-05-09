@@ -68,21 +68,21 @@ void Cube::Update()
 	{
 		rotation = 0.0f;
 	}
-	/*_position.z += 1;
+	_position.z += 1;
 	if (_position.z >= 0)
 	{
 		_position.z = -500;
-	}*/
+	}
 }
 
 void Cube::DefMat()
 {
 	
-	mat->ambient.x = 0.8;mat->ambient.y = 0.05;mat->ambient.z = 0.05;
+	mat->ambient.x = 0.8;mat->ambient.y =0.05;mat->ambient.z = 0.05;
 	mat->ambient.w = 1.0;
 	mat->diffuse.x = 0.8; mat->diffuse.y = 0.05; mat->diffuse.z = 0.05;
 	mat->diffuse.w = 1.0;
-	mat->specular.x = 1.0; mat->specular.y = 1.0; mat->specular.z = 1.0;
+	mat->specular.x = 0.8; mat->specular.y = 0.05; mat->specular.z = 0.05;
 	mat->specular.w = 1.0;
 	mat->shine = 100.0f;
 }
