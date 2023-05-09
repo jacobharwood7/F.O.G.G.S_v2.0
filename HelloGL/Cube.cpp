@@ -24,15 +24,6 @@ Cube::Cube(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneObj
 
 Cube::~Cube()
 {
-	delete objMesh;
-	objMesh = nullptr;
-
-	delete objTexture;
-	objTexture = nullptr;
-
-	delete material;
-	material = nullptr;
-
 }
 
 void Cube::Draw()
@@ -49,22 +40,7 @@ void Cube::Draw()
 		glVertexPointer(3, GL_FLOAT, 0, objMesh->Vertices);
 		glTexCoordPointer(2, GL_FLOAT, 0, objMesh->TexCoords);
 		
-		DefineMats();
-		glMaterialfv(GL_FRONT, GL_AMBIENT, &(material->ambient.x));
-		glMaterialfv(GL_FRONT, GL_AMBIENT, &(material->ambient.y));
-		glMaterialfv(GL_FRONT, GL_AMBIENT, &(material->ambient.z));
-		glMaterialfv(GL_FRONT, GL_AMBIENT, &(material->ambient.w));
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, &(material->diffuse.x));
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, &(material->diffuse.y));
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, &(material->diffuse.z));
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, &(material->diffuse.w));
-		glMaterialfv(GL_FRONT, GL_SPECULAR, &(material->specular.x));
-		glMaterialfv(GL_FRONT, GL_SPECULAR, &(material->specular.y));
-		glMaterialfv(GL_FRONT, GL_SPECULAR, &(material->specular.z));
-		glMaterialfv(GL_FRONT, GL_SPECULAR, &(material->specular.w));//problem here read access violation 
-		glMaterialf(GL_FRONT, GL_SHININESS, material->shine);
-
-
+		
 		glPushMatrix();
 			glTranslatef(_position.x, _position.y, _position.z);
 			glRotatef(rotation * rotateFactor, 1.0f, 1.0f, 1.0f);
@@ -91,18 +67,4 @@ void Cube::Update()
 		_position.z = -500;
 	}*/
 }
-
-void Cube::DefineMats()
-{
-	material = new Material();
-	material->ambient.x = 0.8;material->ambient.y = 0.05;material->ambient.z = 0.05;
-	material->ambient.w = 1.0;
-	material->diffuse.x = 0.8; material->diffuse.y = 0.05; material->diffuse.z = 0.05;
-	material->diffuse.w = 1.0;
-	material->specular.x = 1.0; material->specular.y = 1.0; material->specular.z = 1.0;
-	material->specular.w = 1.0;
-	material->shine = 100.0f;
-
-}
-
 

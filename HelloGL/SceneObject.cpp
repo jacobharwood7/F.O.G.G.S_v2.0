@@ -8,7 +8,6 @@ SceneObject::SceneObject(Mesh* mesh, Texture2D* texture)
 
 SceneObject::~SceneObject()
 {
-	
 }
 
 void SceneObject::Update()

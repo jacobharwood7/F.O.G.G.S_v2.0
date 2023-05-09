@@ -10,10 +10,10 @@ HelloGL::HelloGL(int argc, char* argv[])
 
 void HelloGL::InitObjects()
 {
-	cubeText = new Texture2D();
+	Texture2D* cubeText = new Texture2D();
 	cubeText->Load((char*)"Penguins.raw", 512, 512);
 
-	cubeMesh = MeshLoader::Load((char*)"cube.txt");
+	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
 
 	//Mesh* pyraMesh = MeshLoader::Load((char*)"pyramid.txt");
 
@@ -29,7 +29,6 @@ void HelloGL::InitObjects()
 	camera->eye.x = 5.0f; camera->eye.y = 5.0f; camera->eye.z = -5.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
-
 
 	
 }
@@ -55,6 +54,9 @@ void HelloGL::InitLight()
 	lightData->specular.y = 0.2;
 	lightData->specular.z = 0.2;
 	lightData->specular.w = 1.0;
+
+
+
 }
 
 void HelloGL::InitGL(int argc, char* argv[])
@@ -172,24 +174,4 @@ void HelloGL::Keyboard(unsigned char key, int x, int y)
 HelloGL::~HelloGL(void)
 {
 	delete camera;
-	camera = nullptr;
-	
-	for (int i = 0; i < 1000; i++)
-	{
-		delete objects[i];
-		objects[i] = nullptr;
-	}
-
-	delete lightData;
-	lightData = nullptr;
-
-	delete lightPosition;
-	lightPosition = nullptr;
-
-
-	delete cubeText;
-	cubeText = nullptr;
-
-	delete cubeMesh;
-	cubeMesh = nullptr;
 }

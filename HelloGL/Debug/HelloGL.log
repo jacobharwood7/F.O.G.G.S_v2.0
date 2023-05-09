@@ -1,9 +1,12 @@
-﻿  Cube.cpp
-C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(13,24): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(98,27): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(98,54): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(98,81): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(100,27): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(100,55): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Cube.cpp(100,83): warning C4305: '=': truncation from 'double' to 'float'
+﻿  HelloGL.cpp
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(23,112): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(45,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(46,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(47,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(49,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(50,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(51,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(53,29): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(54,29): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\HelloGL.cpp(55,29): warning C4305: '=': truncation from 'double' to 'float'
   HelloGL.vcxproj -> C:\Users\h014626l\Documents\GitHub\F.O.G.G.S_v2.0\HelloGL\Debug\HelloGL.exe
